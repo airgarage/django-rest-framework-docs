@@ -39,7 +39,7 @@ class ApiEndpoint(object):
     def __get_path__(self, parent_regex):
         regex = get_regex_pattern(self.pattern)
         if parent_regex:
-            return "/{0}{1}".format(self.name_parent, simplify_regex(regex))
+            return "{0}{1}".format(self.name_parent, simplify_regex(regex))
         return simplify_regex(regex)
 
     def is_method_allowed(self, callback_cls, method_name):
