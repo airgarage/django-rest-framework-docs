@@ -140,7 +140,7 @@ class ApiEndpoint(object):
         choices. Else returns `None`
 
         """
-        if isinstance(field, PrimaryKeyRelatedField):
+        if isinstance(field, PrimaryKeyRelatedField) and field.queryset:
             return ['Related field ' + str(field.queryset.model)]
 
         if hasattr(field, 'choices'):
